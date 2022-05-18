@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_pinjaman_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardCornerRadius="16dp"
+    app:cardMaxElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_item"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="@string/kursi_roda" />
+
+        <TextView
+            android:id="@+id/tv_keperuntukan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/keperuntukan_diri" />
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

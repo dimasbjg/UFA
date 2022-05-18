@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">UFA</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="umroh_farfasa">UMROH FARFASA</string>
+    <string name="informasi">Informasi</string>
+    <string name="peminjaman">Peminjaman</string>
+    <string name="data_diri">Data Diri</string>
+    <string name="jadwal">Jadwal</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="nik">NIK</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="kewarganegaraan">Kewarganegaraan</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="status_menikah">Status Menikah</string>
+    <string name="orang_tua">Orang Tua</string>
+    <string name="alamat">Alamat</string>
+    <string name="ajukan_perubahan">Ajukan Perubahan</string>
+    <string name="verifikasi">Verifikasi</string>
+    <string name="nik_field">0000000000000000</string>
+    <string name="kewarganegaraan_field">Indonesia</string>
+    <string name="jenis_kelamin_field">Laki - Laki</string>
+    <string name="tempat_lahir_field">Jakarta</string>
+    <string name="tanggal_lahir_field">18 Agastus 1945</string>
+    <string name="status_menikah_field">Belom Menikah</string>
+    <string name="orang_tua_field">• Muhammad Huda\n• Wahyu Dwi Utami</string>
+    <string name="alamat_field">Jalan Sultan Hamengkubuono X RT 02 RW 02 Kelurahan Pekanbaru Kabupaten Tuban Jawa Timur</string>
+    <string name="colon">:</string>
+    <string name="kursi_roda">Kursi Roda</string>
+    <string name="keperuntukan_diri">Diri Sendiri</string>
+    <string name="daftar_pinjaman">Daftar Pinjaman</string>
+    <string name="pinjaman_kosong">Anda belom meminjam apapun</string>
+</resources>

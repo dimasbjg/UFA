@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.profile.ProfileActivity">
+
+        <TextView
+            android:id="@+id/text_nama_lengkap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/nama_lengkap"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_nik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/nik"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_nama_lengkap" />
+
+        <TextView
+            android:id="@+id/text_nik_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/nik_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_kewarganegaraan"
+            app:layout_constraintTop_toTopOf="@id/text_nik" />
+
+        <TextView
+            android:id="@+id/text_jenis_kelamin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/jenis_kelamin"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_nik_field" />
+
+        <TextView
+            android:id="@+id/text_jenis_kelamin_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/jenis_kelamin_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_jenis_kelamin" />
+
+        <TextView
+            android:id="@+id/text_kewarganegaraan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/kewarganegaraan"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_jenis_kelamin_field" />
+
+        <TextView
+            android:id="@+id/text_kewarganegaraan_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/kewarganegaraan_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_kewarganegaraan" />
+
+        <TextView
+            android:id="@+id/text_tempat_lahir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/tempat_lahir"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_kewarganegaraan_field" />
+
+        <TextView
+            android:id="@+id/text_tempat_lahir_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/tempat_lahir_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_tempat_lahir" />
+
+        <TextView
+            android:id="@+id/text_tanggal_lahir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/tanggal_lahir"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_tempat_lahir_field" />
+
+        <TextView
+            android:id="@+id/text_tanggal_lahir_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/tanggal_lahir_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_tanggal_lahir" />
+
+        <TextView
+            android:id="@+id/text_status_menikah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/status_menikah"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_tanggal_lahir_field" />
+
+        <TextView
+            android:id="@+id/text_status_menikah_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/status_menikah_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_status_menikah" />
+
+        <TextView
+            android:id="@+id/text_orang_tua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/orang_tua"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_status_menikah_field" />
+
+        <TextView
+            android:id="@+id/text_orang_tua_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/orang_tua_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_orang_tua" />
+
+        <TextView
+            android:id="@+id/text_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/alamat"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_orang_tua_field" />
+
+        <TextView
+            android:id="@+id/text_alamat_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/alamat_field"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_alamat" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_ajaukan_perubahan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/roundedbuttondisabled"
+            android:text="@string/ajukan_perubahan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bt_verifikasi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_alamat_field" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_verifikasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/roundedbutton"
+            android:text="@string/verifikasi"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bt_ajaukan_perubahan"
+            app:layout_constraintTop_toTopOf="@id/bt_ajaukan_perubahan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_nik_field"
+            app:layout_constraintTop_toTopOf="@id/text_nik_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_jenis_kelamin_field"
+            app:layout_constraintTop_toTopOf="@id/text_jenis_kelamin_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_kewarganegaraan_field"
+            app:layout_constraintTop_toTopOf="@id/text_kewarganegaraan_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_tempat_lahir_field"
+            app:layout_constraintTop_toTopOf="@id/text_tempat_lahir_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_tanggal_lahir_field"
+            app:layout_constraintTop_toTopOf="@id/text_tanggal_lahir_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_status_menikah_field"
+            app:layout_constraintTop_toTopOf="@id/text_status_menikah_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_orang_tua_field"
+            app:layout_constraintTop_toTopOf="@id/text_orang_tua_field" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_alamat_field"
+            app:layout_constraintTop_toTopOf="@id/text_alamat_field" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
