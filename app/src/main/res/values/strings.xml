@@ -32,4 +32,7 @@
     <string name="keperuntukan_diri">Diri Sendiri</string>
     <string name="daftar_pinjaman">Daftar Pinjaman</string>
     <string name="pinjaman_kosong">Anda belom meminjam apapun</string>
+    <string name="jadwal_terdekat">Jadwal Terdekat</string>
+    <string name="jadwal_menyeluruh">Jadwal Menyeluruh</string>
+    <string name="pinjam">Pinjam</string>
 </resources>
