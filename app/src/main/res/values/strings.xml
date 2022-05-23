@@ -35,4 +35,17 @@
     <string name="jadwal_terdekat">Jadwal Terdekat</string>
     <string name="jadwal_menyeluruh">Jadwal Menyeluruh</string>
     <string name="pinjam">Pinjam</string>
+    <string name="select">Pilih item</string>
+    <string-array name="items_array">
+        <item>Nama Lengkap</item>
+        <item>NIK</item>
+        <item>Jenis Kemalin</item>
+        <item>Kewarganegaraan</item>
+        <item>Tempat Lahir</item>
+        <item>Tanggal Lahir</item>
+        <item>Status Menikah</item>
+        <item>Orang Tua</item>
+        <item>Alamat</item>
+        <item>Lainnya</item>
+    </string-array>
 </resources>
