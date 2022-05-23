@@ -36,6 +36,8 @@
     <string name="jadwal_menyeluruh">Jadwal Menyeluruh</string>
     <string name="pinjam">Pinjam</string>
     <string name="select">Pilih item</string>
+    <string name="penjelasan">Berikan Penjelasan detail</string>
+    <string name="kirim">Kirim</string>
     <string-array name="items_array">
         <item>Nama Lengkap</item>
         <item>NIK</item>
