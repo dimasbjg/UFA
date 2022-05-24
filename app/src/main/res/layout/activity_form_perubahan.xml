@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.form.FormPerubahanActivity">
+    tools:context=".ui.formubah.FormPerubahanActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tv_layout_item"
@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
+            android:freezesText="true"
             tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
