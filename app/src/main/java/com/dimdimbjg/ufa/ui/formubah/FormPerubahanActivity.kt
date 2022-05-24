@@ -17,7 +17,7 @@ class FormPerubahanActivity : AppCompatActivity() {
         val activityFormPerubahanBinding = ActivityFormPerubahanBinding.inflate(layoutInflater)
         setContentView(activityFormPerubahanBinding.root)
 
-        items = resources.getStringArray(R.array.items_array)
+        items = resources.getStringArray(R.array.items_data_array)
 
         val adapterItems = NoFilterArrayAdapter(this, R.layout.list_item,
             items as Array<out String>)

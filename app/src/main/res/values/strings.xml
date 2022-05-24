@@ -41,16 +41,17 @@
     <string name="pilih_barang">Pilih Barang</string>
     <string name="diri_sendiri">Diri Sendiri</string>
     <string name="orang_lain">Orang Lain</string>
-    <string-array name="items_array">
-        <item>Nama Lengkap</item>
-        <item>NIK</item>
-        <item>Jenis Kemalin</item>
-        <item>Kewarganegaraan</item>
-        <item>Tempat Lahir</item>
-        <item>Tanggal Lahir</item>
-        <item>Status Menikah</item>
-        <item>Orang Tua</item>
-        <item>Alamat</item>
-        <item>Lainnya</item>
+    <string-array name="items_data_array">
+        <item name="data1">Nama Lengkap</item>
+        <item name="data2">NIK</item>
+        <item name="data3">Jenis Kemalin</item>
+        <item name="data4">Kewarganegaraan</item>
+        <item name="data5">Tempat Lahir</item>
+        <item name="data6">Tanggal Lahir</item>
+        <item name="data7">Status Menikah</item>
+        <item name="data8">Orang Tua</item>
+        <item name="data9">Alamat</item>
+        <item name="data10">Lainnya</item>
     </string-array>
+
 </resources>
