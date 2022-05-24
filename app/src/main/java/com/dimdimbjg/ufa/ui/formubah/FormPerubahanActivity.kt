@@ -9,7 +9,7 @@ import com.dimdimbjg.ufa.utils.NoFilterArrayAdapter
 
 class FormPerubahanActivity : AppCompatActivity() {
 
-    private var items = arrayOf("Nama Lengkap","NIK","Jenis Kelamin","Tempat Lahir","Tanggal Lahir","Status Menikah","Orang Tua","Alamat","Lainnya")
+    private var items : Array<String>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +17,10 @@ class FormPerubahanActivity : AppCompatActivity() {
         val activityFormPerubahanBinding = ActivityFormPerubahanBinding.inflate(layoutInflater)
         setContentView(activityFormPerubahanBinding.root)
 
-        activityFormPerubahanBinding.actvItem.freezesText = false
+        items = resources.getStringArray(R.array.items_array)
 
-        val adapterItems = NoFilterArrayAdapter(this, R.layout.list_item, items)
+        val adapterItems = NoFilterArrayAdapter(this, R.layout.list_item,
+            items as Array<out String>)
         activityFormPerubahanBinding.actvItem.setAdapter(adapterItems)
     }
 }
