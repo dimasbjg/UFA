@@ -16,15 +16,24 @@ class LoginActivity : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
 
-    private val activityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
+    private lateinit var activityLoginBinding: ActivityLoginBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        activityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
+
         setContentView(activityLoginBinding.root)
 
         mAuth = FirebaseAuth.getInstance()
+
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         activityLoginBinding.btLogin.setOnClickListener {
             userLogin()
@@ -63,11 +72,11 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                //redirect
                 activityLoginBinding.progressBar.isGone
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             } else {
+                activityLoginBinding.progressBar.isGone
                 Toast.makeText(
                     this,
                     "Gagal login, silahkan cek kembali username dan password",
@@ -75,5 +84,11 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+        finish()
     }
 }
