@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dimdimbjg.ufa.data.source.network.Jadwal
 import com.dimdimbjg.ufa.databinding.PeminjamanItemBinding
+import com.dimdimbjg.ufa.utils.DateConverter
 
 class JadwalAdapter : RecyclerView.Adapter<JadwalAdapter.JadwalViewHolder>() {
 
@@ -35,9 +36,11 @@ class JadwalAdapter : RecyclerView.Adapter<JadwalAdapter.JadwalViewHolder>() {
             binding.root
         ) {
 
+        private val dateConverter = DateConverter()
+
         fun onBind(jadwal: Jadwal) {
             binding.tvTitle.text = jadwal.kegiatan
-            val waktu = jadwal.hari + " " + jadwal.tanggal + " " + jadwal.pukul
+            val waktu = jadwal.hari + " " + dateConverter.convertInttoDate(jadwal.tanggal) + " " + jadwal.pukul
             binding.tvDescription.text = waktu
         }
     }
