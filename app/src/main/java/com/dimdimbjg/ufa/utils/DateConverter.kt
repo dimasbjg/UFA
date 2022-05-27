@@ -32,9 +32,17 @@ class DateConverter {
             val formatter = SimpleDateFormat("dd-MM-yyyy")
             formatter.format(parser.parse(date))
         }
-
         return dateString
+    }
 
+    fun formattedTime(time: Int): String {
+        //get hour
+        val hour = time / 100
+
+        //get munites
+        val minute = time % 100
+
+        return String.format("%02d:%02d",hour,minute)
     }
 
 }

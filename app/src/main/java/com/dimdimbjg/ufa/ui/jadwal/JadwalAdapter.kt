@@ -40,7 +40,7 @@ class JadwalAdapter : RecyclerView.Adapter<JadwalAdapter.JadwalViewHolder>() {
 
         fun onBind(jadwal: Jadwal) {
             binding.tvTitle.text = jadwal.kegiatan
-            val waktu = jadwal.hari + " " + dateConverter.convertInttoDate(jadwal.tanggal) + " " + jadwal.pukul
+            val waktu = jadwal.hari.replaceFirstChar { it.titlecase() } + " " + dateConverter.convertInttoDate(jadwal.tanggal) + " " + dateConverter.formattedTime(jadwal.pukul)
             binding.tvDescription.text = waktu
         }
     }
