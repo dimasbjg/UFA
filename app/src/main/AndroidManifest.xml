@@ -14,6 +14,9 @@
         android:theme="@style/Theme.UFA"
         tools:targetApi="31">
         <activity
+            android:name=".InformasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.formpinjam.FormPinjamActivity"
             android:exported="false" />
         <activity
@@ -34,13 +37,11 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
