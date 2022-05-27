@@ -2,6 +2,7 @@ package com.dimdimbjg.ufa.data
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.dimdimbjg.ufa.data.source.network.Informasi
 import com.dimdimbjg.ufa.data.source.network.Jadwal
 import com.dimdimbjg.ufa.data.source.network.UserData
 import com.google.firebase.auth.FirebaseAuth
@@ -57,7 +58,6 @@ class Repository {
 
                     })
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -65,6 +65,24 @@ class Repository {
 
         })
 
+    }
+
+    fun getInformasi(livedata: MutableLiveData<List<Informasi>>) {
+        val informasiRef = dbRef.getReference("informasi")
+
+        informasiRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val informasiList: List<Informasi> = snapshot.children.map {
+                    it.getValue(Informasi::class.java)!!
+                }
+
+                livedata.postValue(informasiList)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
     }
 
 
