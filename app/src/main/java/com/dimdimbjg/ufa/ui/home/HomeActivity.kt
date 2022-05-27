@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dimdimbjg.ufa.databinding.ActivityHomeBinding
+import com.dimdimbjg.ufa.ui.jadwal.JadwalActivity
 import com.dimdimbjg.ufa.ui.login.LoginActivity
 import com.dimdimbjg.ufa.ui.profile.ProfileActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,11 @@ class HomeActivity : AppCompatActivity() {
 
         activityHomeBinding.cardProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        activityHomeBinding.cardJadwal.setOnClickListener {
+            val intent = Intent(this, JadwalActivity::class.java)
             startActivity(intent)
         }
 

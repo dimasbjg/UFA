@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_item"
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_marginBottom="4dp"
             android:textColor="@color/black"
@@ -26,7 +26,7 @@
             android:text="@string/kursi_roda" />
 
         <TextView
-            android:id="@+id/tv_keperuntukan"
+            android:id="@+id/tv_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/keperuntukan_diri" />

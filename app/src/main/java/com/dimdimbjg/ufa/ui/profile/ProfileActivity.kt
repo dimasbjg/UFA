@@ -23,7 +23,6 @@ class ProfileActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 
-
         View.GONE.let {
             binding.textNamaLengkap.visibility = it
             binding.textNikField.visibility =it
@@ -47,6 +46,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         viewModel.fetchProfile()
+
         viewModel.profile.observe(this) { profile ->
 
             binding.textNamaLengkap.text = profile.nama

@@ -1,5 +1,6 @@
 package com.dimdimbjg.ufa.data
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.dimdimbjg.ufa.data.source.network.Jadwal
 import com.dimdimbjg.ufa.data.source.network.UserData
@@ -34,7 +35,7 @@ class Repository {
     fun getJadwal(livedata: MutableLiveData<List<Jadwal>>) {
         val profileRef = dbRef.getReference("Users")
         val userId = firebaseAuth.currentUser!!.uid
-        val jadwalRef = dbRef.getReference("kotler")
+        val jadwalRef = dbRef.getReference("kloter")
 
         profileRef.child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
