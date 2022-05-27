@@ -25,7 +25,7 @@
     <string name="tempat_lahir_field">Jakarta</string>
     <string name="tanggal_lahir_field">18 Agastus 1945</string>
     <string name="status_menikah_field">Belom Menikah</string>
-    <string name="orang_tua_field">• Muhammad Huda\n• Wahyu Dwi Utami</string>
+    <string name="orang_tua_field">• AAAAAA\n• BBBBBBB</string>
     <string name="alamat_field">Jalan Sultan Hamengkubuono X RT 02 RW 02 Kelurahan Pekanbaru Kabupaten Tuban Jawa Timur</string>
     <string name="colon">:</string>
     <string name="kursi_roda">Kursi Roda</string>
@@ -41,6 +41,7 @@
     <string name="pilih_barang">Pilih Barang</string>
     <string name="diri_sendiri">Diri Sendiri</string>
     <string name="orang_lain">Orang Lain</string>
+    <string name="nama_orang_tua">• %1$s\n• %2$s</string>
     <string-array name="items_data_array">
         <item name="data1">Nama Lengkap</item>
         <item name="data2">NIK</item>
