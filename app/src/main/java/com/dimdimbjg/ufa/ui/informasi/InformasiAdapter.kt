@@ -32,4 +32,10 @@ class InformasiAdapter : RecyclerView.Adapter<InformasiAdapter.InformasiViewHold
     }
 
     override fun getItemCount(): Int = informasiList.size
+
+    fun setInformasiList(informasiList: List<Informasi>) {
+        this.informasiList.clear()
+        this.informasiList.addAll(informasiList)
+    }
+
 }

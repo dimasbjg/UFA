@@ -5,6 +5,7 @@ import android.os.Build
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class DateConverter {
 
@@ -21,18 +22,9 @@ class DateConverter {
         //get day
         val day: Int = (longDate%100)
 
-        val date = "$year-$month-$day"
+        val date = String.format("%02d-%02d-$year", day,month).trim()
 
-        val dateString: String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val localDateTime = LocalDateTime.parse(date)
-            val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-            formatter.format(localDateTime)
-        } else {
-            val parser = SimpleDateFormat("yyyy-MM-dd")
-            val formatter = SimpleDateFormat("dd-MM-yyyy")
-            formatter.format(parser.parse(date))
-        }
-        return dateString
+        return date
     }
 
     fun formattedTime(time: Int): String {

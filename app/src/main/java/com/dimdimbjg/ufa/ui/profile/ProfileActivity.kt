@@ -1,14 +1,13 @@
 package com.dimdimbjg.ufa.ui.profile
 
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import com.dimdimbjg.ufa.R
 import com.dimdimbjg.ufa.databinding.ActivityProfileBinding
+import com.dimdimbjg.ufa.vo.Status
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -25,7 +24,7 @@ class ProfileActivity : AppCompatActivity() {
 
         View.GONE.let {
             binding.textNamaLengkap.visibility = it
-            binding.textNikField.visibility =it
+            binding.textNikField.visibility = it
             binding.textJenisKelaminField.visibility = it
             binding.textKewarganegaraanField.visibility = it
             binding.textTanggalLahirField.visibility = it
@@ -34,7 +33,7 @@ class ProfileActivity : AppCompatActivity() {
             binding.textAlamatField.visibility = it
             binding.textOrangTuaField.visibility = it
 
-            binding.textNik.visibility =it
+            binding.textNik.visibility = it
             binding.textJenisKelamin.visibility = it
             binding.textKewarganegaraan.visibility = it
             binding.textTanggalLahir.visibility = it
@@ -47,38 +46,53 @@ class ProfileActivity : AppCompatActivity() {
 
         viewModel.fetchProfile()
 
-        viewModel.profile.observe(this) { profile ->
+        viewModel.profile.observe(this) { result ->
 
-            binding.textNamaLengkap.text = profile.nama
-            binding.textNikField.text = profile.nik.toString()
-            binding.textJenisKelaminField.text = if (profile.kelamin) "Laki - Laki" else "Perempuan"
-            binding.textKewarganegaraanField.text = profile.kewarganegaraan
-            binding.textTanggalLahirField.text = profile.tanggallahir.toString()
-            binding.textStatusMenikahField.text = if (profile.menikah) "Sudah Menikah" else "Belom Menikah"
-            binding.textTempatLahirField.text = profile.tempatlahir
-            binding.textAlamatField.text = profile.alamat
-            binding.textOrangTuaField.text = resources.getString(R.string.nama_orang_tua,profile.orangtua1,profile.orangtua2)
-            View.VISIBLE.let {
-                binding.textNamaLengkap.visibility = it
-                binding.textNikField.visibility =it
-                binding.textJenisKelaminField.visibility = it
-                binding.textKewarganegaraanField.visibility = it
-                binding.textTanggalLahirField.visibility = it
-                binding.textStatusMenikahField.visibility = it
-                binding.textTempatLahirField.visibility = it
-                binding.textAlamatField.visibility = it
-                binding.textOrangTuaField.visibility = it
+            when (result.status) {
+                Status.SUCCESS -> {
+                    if (result.data != null) {
+                        binding.textNamaLengkap.text = result.data.nama
+                        binding.textNikField.text = result.data.nik.toString()
+                        binding.textJenisKelaminField.text = if (result.data.kelamin) "Laki - Laki" else "Perempuan"
+                        binding.textKewarganegaraanField.text = result.data.kewarganegaraan
+                        binding.textTanggalLahirField.text = result.data.tanggallahir.toString()
+                        binding.textStatusMenikahField.text =
+                            if (result.data.menikah) "Sudah Menikah" else "Belom Menikah"
+                        binding.textTempatLahirField.text = result.data.tempatlahir
+                        binding.textAlamatField.text = result.data.alamat
+                        binding.textOrangTuaField.text =
+                            resources.getString(R.string.nama_orang_tua, result.data.orangtua1, result.data.orangtua2)
+                        View.VISIBLE.let {
+                            binding.textNamaLengkap.visibility = it
+                            binding.textNikField.visibility = it
+                            binding.textJenisKelaminField.visibility = it
+                            binding.textKewarganegaraanField.visibility = it
+                            binding.textTanggalLahirField.visibility = it
+                            binding.textStatusMenikahField.visibility = it
+                            binding.textTempatLahirField.visibility = it
+                            binding.textAlamatField.visibility = it
+                            binding.textOrangTuaField.visibility = it
 
-                binding.textNik.visibility =it
-                binding.textJenisKelamin.visibility = it
-                binding.textKewarganegaraan.visibility = it
-                binding.textTanggalLahir.visibility = it
-                binding.textStatusMenikah.visibility = it
-                binding.textTempatLahir.visibility = it
-                binding.textAlamat.visibility = it
-                binding.textOrangTua.visibility = it
-                binding.progressBar.visibility = View.GONE
+                            binding.textNik.visibility = it
+                            binding.textJenisKelamin.visibility = it
+                            binding.textKewarganegaraan.visibility = it
+                            binding.textTanggalLahir.visibility = it
+                            binding.textStatusMenikah.visibility = it
+                            binding.textTempatLahir.visibility = it
+                            binding.textAlamat.visibility = it
+                            binding.textOrangTua.visibility = it
+                            binding.progressBar.visibility = View.GONE
+                        }
+                    }
+
+                }
+                Status.ERROR -> {
+                    Toast.makeText(this, result.message, Toast.LENGTH_SHORT).show()
+                }
             }
+
+
         }
+
     }
 }

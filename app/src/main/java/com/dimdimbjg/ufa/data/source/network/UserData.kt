@@ -14,4 +14,6 @@ data class UserData(
 	val tempatlahir: String = "",
 	val umur: Int = 0,
 	val tanggallahir: Int = 999900,
+	val verified: Boolean = false,
+	val requestverify: Boolean = false
 )

@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dimdimbjg.ufa.databinding.ActivityHomeBinding
+import com.dimdimbjg.ufa.ui.informasi.InformasiActivity
 import com.dimdimbjg.ufa.ui.jadwal.JadwalActivity
 import com.dimdimbjg.ufa.ui.login.LoginActivity
 import com.dimdimbjg.ufa.ui.profile.ProfileActivity
@@ -36,6 +37,12 @@ class HomeActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(this, LoginActivity::class.java))
         }
+
+        activityHomeBinding.cardInformasi.setOnClickListener {
+            val intent = Intent(this, InformasiActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onBackPressed() {
