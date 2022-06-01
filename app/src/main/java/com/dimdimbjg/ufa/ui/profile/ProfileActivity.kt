@@ -84,15 +84,11 @@ class ProfileActivity : AppCompatActivity() {
                             binding.progressBar.visibility = View.GONE
                         }
                     }
-
                 }
                 Status.ERROR -> {
                     Toast.makeText(this, result.message, Toast.LENGTH_SHORT).show()
                 }
             }
-
-
         }
-
     }
 }

@@ -27,24 +27,24 @@ class Repository {
 
         profileRef.child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                if (connection) {
+                    liveData.postValue(Resource.success(snapshot.getValue(UserData::class.java)))
+                }
                 connection = false
-                liveData.postValue(Resource.success(snapshot.getValue(UserData::class.java)))
             }
 
             override fun onCancelled(error: DatabaseError) {
                 liveData.postValue(Resource.error("Fail due to security reason", null))
             }
-
-
-
         })
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (connection) {
                 connection = false
-                liveData.postValue(Resource.error("Fail", null))
+                liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server",
+                    null))
             }
-        }, 20000)
+        }, 10000)
     }
 
     fun getJadwal(liveData: MutableLiveData<Resource<List<Jadwal>>>) {
@@ -56,29 +56,35 @@ class Repository {
 
         profileRef.child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val result = snapshot.getValue(UserData::class.java)
 
-                if (result != null) {
-                    jadwalRef.child(result.kloter)
-                        .addValueEventListener(object : ValueEventListener {
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                val jadwalItems: List<Jadwal> = snapshot.children.map {
-                                    it.getValue(Jadwal::class.java)!!
+                if (connection) {
+                    val result = snapshot.getValue(UserData::class.java)
+
+                    if (result != null) {
+                        jadwalRef.child(result.kloter)
+                            .addValueEventListener(object : ValueEventListener {
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    val jadwalItems: List<Jadwal> = snapshot.children.map {
+                                        it.getValue(Jadwal::class.java)!!
+                                    }
+
+                                    liveData.postValue(Resource.success(jadwalItems))
                                 }
 
-                                liveData.postValue(Resource.success(jadwalItems))
-                            }
+                                override fun onCancelled(error: DatabaseError) {
+                                    liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server",
+                                        null))
+                                }
 
-                            override fun onCancelled(error: DatabaseError) {
-                                liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server" , null))
-                            }
-
-                        })
+                            })
+                    }
                 }
+                connection = false
             }
 
             override fun onCancelled(error: DatabaseError) {
-                liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server" , null))
+                liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server",
+                    null))
             }
 
         })
@@ -86,9 +92,10 @@ class Repository {
         Handler(Looper.getMainLooper()).postDelayed({
             if (connection) {
                 connection = false
-                liveData.postValue(Resource.error("Terjadi kesalahan, silahkan periksa koneksi internet anda", null))
+                liveData.postValue(Resource.error("Terjadi kesalahan, silahkan periksa koneksi internet anda",
+                    null))
             }
-        }, 20000)
+        }, 10000)
 
     }
 
@@ -99,12 +106,14 @@ class Repository {
 
         informasiRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                connection = false
-                val informasiList: List<Informasi> = snapshot.children.map {
-                    it.getValue(Informasi::class.java)!!
-                }
+                if (connection) {
+                    connection = false
+                    val informasiList: List<Informasi> = snapshot.children.map {
+                        it.getValue(Informasi::class.java)!!
+                    }
 
-                liveData.postValue(Resource.success(informasiList))
+                    liveData.postValue(Resource.success(informasiList))
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -119,7 +128,7 @@ class Repository {
                 connection = false
                 liveData.postValue(Resource.error("Fail", null))
             }
-        }, 20000)
+        }, 10000)
 
     }
 
