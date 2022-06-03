@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import com.dimdimbjg.ufa.R
+import com.dimdimbjg.ufa.data.source.network.UserData
 import com.dimdimbjg.ufa.databinding.ActivityProfileBinding
 import com.dimdimbjg.ufa.ui.formubah.FormPerubahanActivity
 import com.dimdimbjg.ufa.vo.Status
@@ -17,6 +19,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
 
     private lateinit var viewModel: ProfileViewModel
+
+    private lateinit var userData: UserData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +49,9 @@ class ProfileActivity : AppCompatActivity() {
             binding.textAlamat.visibility = it
             binding.textOrangTua.visibility = it
             binding.progressBar.visibility = View.VISIBLE
+
+            binding.btVerifikasi.visibility = it
+            binding.btAjaukanPerubahan.visibility = it
         }
 
         viewModel.fetchProfile()
@@ -54,6 +61,7 @@ class ProfileActivity : AppCompatActivity() {
             when (result.status) {
                 Status.SUCCESS -> {
                     if (result.data != null) {
+                        userData = result.data
                         binding.textNamaLengkap.text = result.data.nama
                         binding.textNikField.text = result.data.nik.toString()
                         binding.textJenisKelaminField.text =
@@ -68,6 +76,15 @@ class ProfileActivity : AppCompatActivity() {
                             resources.getString(R.string.nama_orang_tua,
                                 result.data.orangtua1,
                                 result.data.orangtua2)
+
+                        if (result.data.requestverify || result.data.verified || result.data.pengajuanPerubahan) {
+                            binding.btVerifikasi.isEnabled = false
+                            binding.btAjaukanPerubahan.isEnabled = false
+                        } else {
+                            binding.btVerifikasi.isEnabled = true
+                            binding.btAjaukanPerubahan.isEnabled = true
+                        }
+
                         View.VISIBLE.let {
                             binding.textNamaLengkap.visibility = it
                             binding.textNikField.visibility = it
@@ -88,6 +105,9 @@ class ProfileActivity : AppCompatActivity() {
                             binding.textAlamat.visibility = it
                             binding.textOrangTua.visibility = it
                             binding.progressBar.visibility = View.GONE
+
+                            binding.btVerifikasi.visibility = it
+                            binding.btAjaukanPerubahan.visibility = it
                         }
                     }
                 }
@@ -102,7 +122,7 @@ class ProfileActivity : AppCompatActivity() {
                 .setTitle("Verifikasi kebenaran data")
                 .setMessage("Apakah anda sudah yakin data yang tertera sudah benar dengan data sesungguhnya dan menyetujui verifikasi data dilakukan oleh sistem?")
                 .setPositiveButton("Iya") { dialog, id ->
-                    // yes todo
+                    viewModel.updateVerfifyRequestProfile()
                     dialog.cancel()
                 }
                 .setNegativeButton("Tidak") { dialog, _ ->
@@ -115,6 +135,7 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.btAjaukanPerubahan.setOnClickListener {
             val intent = Intent(this, FormPerubahanActivity::class.java)
+            intent.putExtra("USER_DATA", userData)
             startActivity(intent)
         }
 

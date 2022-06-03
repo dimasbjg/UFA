@@ -1,5 +1,9 @@
 package com.dimdimbjg.ufa.data.source.network
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class UserData(
 	val alamat: String = "",
 	val kelamin: Boolean = true,
@@ -13,7 +17,8 @@ data class UserData(
 	val orangtua2: String = "",
 	val tempatlahir: String = "",
 	val umur: Int = 0,
+	var pengajuanPerubahan: Boolean = false,
 	val tanggallahir: Int = 999900,
-	val verified: Boolean = false,
-	val requestverify: Boolean = false
-)
+	var verified: Boolean = false,
+	var requestverify: Boolean = false
+): Parcelable

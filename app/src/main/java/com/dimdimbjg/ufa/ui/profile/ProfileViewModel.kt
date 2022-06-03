@@ -16,4 +16,10 @@ class ProfileViewModel : ViewModel() {
     fun fetchProfile() {
         repository.getProfile(_profile)
     }
+
+    fun updateVerfifyRequestProfile() {
+        _profile.value?.data?.requestverify   = true
+        repository.updateProfile(_profile.value!!.data!!, _profile)
+    }
+
 }

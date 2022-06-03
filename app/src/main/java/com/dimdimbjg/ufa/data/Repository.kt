@@ -5,6 +5,7 @@ import android.os.Looper
 import androidx.lifecycle.MutableLiveData
 import com.dimdimbjg.ufa.data.source.network.Informasi
 import com.dimdimbjg.ufa.data.source.network.Jadwal
+import com.dimdimbjg.ufa.data.source.network.PerubahanData
 import com.dimdimbjg.ufa.data.source.network.UserData
 import com.dimdimbjg.ufa.vo.Resource
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,7 @@ class Repository {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val dbRef = FirebaseDatabase.getInstance()
 
+    private val _result = MutableLiveData<Exception?>()
 
     fun getProfile(liveData: MutableLiveData<Resource<UserData>>) {
         val profileRef = dbRef.getReference("Users")
@@ -132,6 +134,40 @@ class Repository {
 
     }
 
+    fun updateProfile(userData: UserData, liveData: MutableLiveData<Resource<UserData>>) {
+        dbRef.getReference("Users").child(firebaseAuth.uid!!).setValue(userData)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    liveData.postValue(Resource.success(userData))
+                } else {
+                    _result.value = it.exception
+                }
+            }
+    }
+
+    fun sendPerubahan(
+        perubahanData: PerubahanData,
+        userData: UserData,
+        liveData: MutableLiveData<Resource<PerubahanData>>,
+    ) {
+        var connection = true
+
+        dbRef.getReference("perubahan").child(firebaseAuth.uid!!).setValue(perubahanData)
+            .addOnCompleteListener {
+
+                userData.pengajuanPerubahan = true
+                dbRef.getReference("Users").child(firebaseAuth.uid!!).setValue(userData)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            liveData.postValue(Resource.success(perubahanData))
+                        } else {
+                            liveData.postValue(Resource.error("Tidak bisa terhubung dengan sistem, silahkan coba beberapa saat lagi!",
+                                null))
+                        }
+                    }
+
+            }
+    }
 
 }
 
