@@ -44,6 +44,8 @@
     <string name="nama_orang_tua">• %1$s\n• %2$s</string>
     <string name="informasi_terbaru">Informasi Terbaru</string>
     <string name="kosong">Kosong</string>
+    <string name="error_no_connection">Terputus dengan server, Harap cek kembali koneksi internet anda</string>
+    <string name="connection_normal">Terkoneksi dengan internet</string>
     <string-array name="items_data_array">
         <item name="data1">Nama Lengkap</item>
         <item name="data2">NIK</item>

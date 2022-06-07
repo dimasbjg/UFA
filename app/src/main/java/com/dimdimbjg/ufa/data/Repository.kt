@@ -3,16 +3,14 @@ package com.dimdimbjg.ufa.data
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.MutableLiveData
-import com.dimdimbjg.ufa.data.source.network.Informasi
-import com.dimdimbjg.ufa.data.source.network.Jadwal
-import com.dimdimbjg.ufa.data.source.network.PerubahanData
-import com.dimdimbjg.ufa.data.source.network.UserData
+import com.dimdimbjg.ufa.data.source.network.*
 import com.dimdimbjg.ufa.vo.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 
 class Repository {
 
@@ -150,7 +148,6 @@ class Repository {
         userData: UserData,
         liveData: MutableLiveData<Resource<PerubahanData>>,
     ) {
-        var connection = true
 
         dbRef.getReference("perubahan").child(firebaseAuth.uid!!).setValue(perubahanData)
             .addOnCompleteListener {
@@ -165,9 +162,31 @@ class Repository {
                                 null))
                         }
                     }
-
             }
     }
+
+    fun getPeminjamanList (liveData: MutableLiveData<Resource<List<Peminjaman>>>) {
+        val connection = true
+        val listPinjamanRef = dbRef.getReference("pinjaman")
+
+        listPinjamanRef.child(firebaseAuth.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val listPeminjaman: List<Peminjaman> = snapshot.children.map {
+                    it.getValue(Peminjaman::class.java)!!
+                }
+                liveData.postValue(Resource.success(listPeminjaman))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                liveData.postValue(Resource.error("Terjadi kesalahan, tidak bisa terkoneksi dengan server", null))
+            }
+
+        })
+
+
+    }
+
+
 
 }
 
