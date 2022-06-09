@@ -1,5 +1,6 @@
 package com.dimdimbjg.ufa.ui.formubah
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dimdimbjg.ufa.data.Repository
@@ -12,7 +13,7 @@ class FormPerubahanViewModel : ViewModel() {
     private val repository = Repository()
 
     private val _perubahan = MutableLiveData<Resource<PerubahanData>>()
-    val perubahan = _perubahan
+    val perubahan: LiveData<Resource<PerubahanData>> = _perubahan
 
     fun sendPerubahan(perubahanData: PerubahanData,
                       userData: UserData) {

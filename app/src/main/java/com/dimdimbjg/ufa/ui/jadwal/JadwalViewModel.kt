@@ -1,6 +1,7 @@
 package com.dimdimbjg.ufa.ui.jadwal
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dimdimbjg.ufa.data.Repository
@@ -12,7 +13,7 @@ class JadwalViewModel : ViewModel() {
     private val repository = Repository()
 
     private val _jadwal = MutableLiveData<Resource<List<Jadwal>>>()
-    val jadwal = _jadwal
+    val jadwal: LiveData<Resource<List<Jadwal>>> = _jadwal
 
     fun fetchJadwal() {
         repository.getJadwal(_jadwal)

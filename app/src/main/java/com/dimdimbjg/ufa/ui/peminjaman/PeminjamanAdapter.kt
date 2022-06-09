@@ -40,4 +40,9 @@ class PeminjamanAdapter : RecyclerView.Adapter<PeminjamanAdapter.PeminjamanViewH
     }
 
     override fun getItemCount(): Int = peminjamanItems.size
+
+    fun setList(pinjamanList: List<Peminjaman>) {
+        this.peminjamanItems.clear()
+        this.peminjamanItems.addAll(peminjamanItems)
+    }
 }
