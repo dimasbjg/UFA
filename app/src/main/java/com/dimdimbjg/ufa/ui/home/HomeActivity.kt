@@ -11,6 +11,7 @@ import com.dimdimbjg.ufa.databinding.ActivityHomeBinding
 import com.dimdimbjg.ufa.ui.informasi.InformasiActivity
 import com.dimdimbjg.ufa.ui.jadwal.JadwalActivity
 import com.dimdimbjg.ufa.ui.login.LoginActivity
+import com.dimdimbjg.ufa.ui.peminjaman.PeminjamanActivity
 import com.dimdimbjg.ufa.ui.profile.ProfileActivity
 import com.dimdimbjg.ufa.utils.CheckNetworkConnection
 import com.google.firebase.auth.FirebaseAuth
@@ -23,28 +24,33 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val activityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(activityHomeBinding.root)
+        val binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         callNetworkAvailability()
 
-        activityHomeBinding.cardProfile.setOnClickListener {
+        binding.cardProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
 
-        activityHomeBinding.cardJadwal.setOnClickListener {
+        binding.cardJadwal.setOnClickListener {
             val intent = Intent(this, JadwalActivity::class.java)
             startActivity(intent)
         }
 
-        activityHomeBinding.imgLogOut.setOnClickListener {
+        binding.imgLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        activityHomeBinding.cardInformasi.setOnClickListener {
+        binding.cardInformasi.setOnClickListener {
             val intent = Intent(this, InformasiActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cardPeminjaman.setOnClickListener {
+            val intent = Intent(this, PeminjamanActivity::class.java)
             startActivity(intent)
         }
 
@@ -54,9 +60,11 @@ class HomeActivity : AppCompatActivity() {
         checkNetworkConnection = CheckNetworkConnection(application)
         checkNetworkConnection.observe(this) { isConnected ->
             if (isConnected) {
-                Toast.makeText(this, getString(R.string.connection_normal), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.connection_normal), Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                Toast.makeText(this, getString(R.string.error_no_connection), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_no_connection), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -69,7 +77,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         this.doubleBackToExitPressedOnce = true
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Tekan kembali 2 kali untuk keluar", Toast.LENGTH_SHORT).show()
 
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false

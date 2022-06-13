@@ -46,6 +46,8 @@
     <string name="kosong">Kosong</string>
     <string name="error_no_connection">Terputus dengan server, Harap cek kembali koneksi internet anda</string>
     <string name="connection_normal">Terkoneksi dengan internet</string>
+    <string name="batalkan">Batalkan</string>
+    <string name="jadwal_kosong">Tidak Ada Jadwal Terdekat</string>
     <string-array name="items_data_array">
         <item name="data1">Nama Lengkap</item>
         <item name="data2">NIK</item>

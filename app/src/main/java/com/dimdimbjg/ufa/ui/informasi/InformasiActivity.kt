@@ -33,11 +33,5 @@ class InformasiActivity : AppCompatActivity() {
                 }
             }
         }
-
-//        viewModel.informasiList.observe(this) {informasi ->
-//            adapter.setInformasiList(informasi)
-//            adapter.notifyDataSetChanged()
-//        }
-
     }
 }
