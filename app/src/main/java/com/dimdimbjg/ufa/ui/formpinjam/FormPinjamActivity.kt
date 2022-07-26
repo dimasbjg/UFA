@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.dimdimbjg.ufa.R
 import com.dimdimbjg.ufa.data.source.network.Peminjaman
+import com.dimdimbjg.ufa.data.source.network.Status
 import com.dimdimbjg.ufa.databinding.ActivityFormPinjamBinding
 import com.dimdimbjg.ufa.utils.NoFilterArrayAdapter
 
@@ -81,9 +82,11 @@ class FormPinjamActivity : AppCompatActivity() {
                 } else {
                     val selectedId = binding.radioGroup.checkedRadioButtonId
                     val radioButton: RadioButton = findViewById(selectedId)
+                    val status = Status()
                     val peminjaman = Peminjaman(
                         barang = binding.actvBarang.text.toString(),
                         jumlah = 1,
+                        status = status,
                         untuk = radioButton.text.toString(),
                         verified = false
                     )

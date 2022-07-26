@@ -27,30 +27,57 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layout_tv_pinjam"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
-        android:orientation="vertical">
-        
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_tv_pinjam">
+
         <RadioButton
+            android:id="@+id/rb_diri_sendiri"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
             android:background="@null"
             android:buttonTint="@color/green_base"
-            android:text="@string/diri_sendiri"/>
+            android:layoutDirection="rtl"
+            android:text="@string/diri_sendiri" />
+
         <RadioButton
+            android:id="@+id/rb_orang_lain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
             android:background="@null"
             android:buttonTint="@color/green_base"
+            android:layoutDirection="rtl"
             android:text="@string/orang_lain" />
-        
+
     </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_pinjam"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/pinjam"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_batal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/roundedbuttondisabled"
+        android:text="@string/batalkan"
+        app:layout_constraintBottom_toTopOf="@id/bt_pinjam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
