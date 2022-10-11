@@ -18,4 +18,3 @@ data class Status(
 	val keterangan: String = "",
 	val ditolak: Boolean = false
 ): Parcelable
-
